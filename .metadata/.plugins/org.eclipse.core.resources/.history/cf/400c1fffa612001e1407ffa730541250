@@ -1,0 +1,5 @@
+package snow.orderService.orderservice.service;
+
+public class OrderService {
+
+}

@@ -1,0 +1,5 @@
+package snow.orderService.orderservice.repo;
+
+public class OrderRepo {
+
+}

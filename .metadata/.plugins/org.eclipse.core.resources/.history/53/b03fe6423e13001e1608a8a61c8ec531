@@ -1,0 +1,30 @@
+package snow.orderService.orderservice.common;
+
+import snow.orderService.orderservice.entity.Order;
+
+public class TransactionRequest {
+	
+	private Order ord;
+	private Payment pay;
+	
+	public Order getOrd() {
+		return ord;
+	}
+	public void setOrd(Order ord) {
+		this.ord = ord;
+	}
+	public Payment getPay() {
+		return pay;
+	}
+	public void setPay(Payment pay) {
+		this.pay = pay;
+	}
+	
+	@Override
+	public String toString() {
+		return "TransactionRequest [ord=" + ord + ", pay=" + pay + "]";
+	}
+	
+	
+
+}

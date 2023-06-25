@@ -1,0 +1,21 @@
+package snow.orderService.orderservice.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import snow.orderService.orderservice.entity.Order;
+import snow.orderService.orderservice.repo.OrderRepo;
+
+@Service
+public class OrderService {
+	
+	@Autowired
+	private OrderRepo ordRepo;
+	
+	
+	public Order save(Order ord) {
+		ord.setId(ordRepo.getNextVal());
+		return ordRepo.save(ord);
+	}
+
+}

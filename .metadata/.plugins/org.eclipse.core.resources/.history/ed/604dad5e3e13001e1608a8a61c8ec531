@@ -1,0 +1,33 @@
+package snow.orderService.orderservice.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import snow.orderService.orderservice.common.TransactionRequest;
+import snow.orderService.orderservice.entity.Order;
+import snow.orderService.orderservice.repo.OrderRepo;
+
+@Service
+public class OrderService {
+	
+	@Autowired
+	private OrderRepo ordRepo;
+	
+	
+	public Order save(Order ord) {
+		ord.setId(ordRepo.getNextVal());
+		return ordRepo.save(ord);
+	}
+	
+	public Order saveTransaction(TransactionRequest trans) {
+		
+		Order ord = trans.getOrder();
+		
+		ord.setId(ordRepo.getNextVal());
+		
+		
+		return ordRepo.save(ord);
+		
+	}
+
+}

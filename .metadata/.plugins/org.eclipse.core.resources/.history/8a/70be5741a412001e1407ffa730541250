@@ -1,0 +1,5 @@
+package snow.orderService.orderservice.entity;
+
+public class Order {
+
+}

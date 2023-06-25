@@ -1,0 +1,43 @@
+package snow.orderService.orderservice.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import snow.orderService.orderservice.common.Payment;
+import snow.orderService.orderservice.common.TransactionRequest;
+import snow.orderService.orderservice.entity.Order;
+import snow.orderService.orderservice.repo.OrderRepo;
+
+@Service
+public class OrderService {
+	
+	@Autowired
+	private OrderRepo ordRepo;
+	
+	@Autowired
+	private RestTemplate template;
+	
+	
+	public Order save(Order ord) {
+		ord.setId(ordRepo.getNextVal());
+		return ordRepo.save(ord);
+	}
+	
+	public TransactionResponse saveTransaction(TransactionRequest trans) {
+		
+		Order ord = trans.getOrder();
+		Payment pay = trans.getPayment();
+		ord.setId(ordRepo.getNextVal());
+		pay.setOrderId(ord.getId());
+		pay.setAmount(ord.getPrice());
+		
+		Payment paymentResponse = template.postForObject("localhost:9191/Payment/doPayment", pay, Payment.class);
+		
+		 ordRepo.save(ord);
+		 
+		 return null;
+		
+	}
+
+}

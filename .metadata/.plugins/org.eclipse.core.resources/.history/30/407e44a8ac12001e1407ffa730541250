@@ -1,0 +1,15 @@
+
+server.port=8082
+spring.datasource.driver-class-name=net.snowflake.client.jdbc.SnowflakeDriver
+#spring.jpa.database=default
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+spring.datasource.url=jdbc:snowflake://kgydkdk-je33486.snowflakecomputing.com/?db=AIRBNB&warehouse=COMPUTE_WH&schema=DEV&CLIENT_RESULT_COLUMN_CASE_INSENSITIVE=true	
+spring.datasource.username=LAmanta
+spring.datasource.password=Marsh@97943
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+#spring.jpa.properties.hibernate.format_sql=true
+#spring.jpa.properties.hibernate.jdbc.batch_size=10
+#spring.jpa.properties.hibernate.order_inserts=true
+
+

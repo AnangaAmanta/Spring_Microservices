@@ -1,0 +1,12 @@
+package snow.orderService.orderservice.common;
+
+import snow.orderService.orderservice.entity.Order;
+
+public class TransactionResponse {
+	
+	private Order ord;
+	private int amount;
+	private String transactionid;
+	
+
+}
